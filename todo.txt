@@ -4,3 +4,4 @@
 
 2 - Criar standard para mensagens de erro
 3 - Criar validacao para todos os campos
+4 - Mover Beans de CardApplication para uma factory exclusiva
