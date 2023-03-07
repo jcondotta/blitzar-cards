@@ -1,0 +1,6 @@
+1 - Organizar inheritance das classes Card
+1.1 - Flyway
+1.2 - Init schema .sql para prod db and test container db's
+
+2 - Criar standard para mensagens de erro
+3 - Criar validacao para todos os campos
