@@ -7,5 +7,4 @@ public record CardDTO(long cardId, String cardholderName) {
     public CardDTO(Card card) {
         this(card.getCardId(), card.getCardholderName());
     }
-
 }
