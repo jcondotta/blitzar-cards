@@ -1,20 +1,15 @@
 package com.blitzar.cards.web.controller;
 
-import com.blitzar.cards.domain.CardModel;
 import com.blitzar.cards.service.AddCardDelegate;
 
 public class AddCardRequest implements AddCardDelegate {
 
-    private CardModel cardModel;
     private String cardholderName;
 
-    @Override
-    public CardModel getCardModel() {
-        return cardModel;
-    }
+    public AddCardRequest() {}
 
-    public void setCardModel(CardModel cardModel) {
-        this.cardModel = cardModel;
+    public AddCardRequest(AddCardDelegate addCardDelegate) {
+        this.cardholderName = addCardDelegate.getCardholderName();
     }
 
     @Override
