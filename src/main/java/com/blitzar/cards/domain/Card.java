@@ -23,7 +23,7 @@ public class Card {
     private LocalDate expirationDate;
 
     @Column(name = "security_code")
-    private String securityCode;
+    private char[] securityCode;
 
     public Long getCardId() {
         return cardId;
@@ -53,11 +53,11 @@ public class Card {
         this.expirationDate = expirationDate;
     }
 
-    public String getSecurityCode() {
+    public char[] getSecurityCode() {
         return securityCode;
     }
 
-    public void setSecurityCode(String securityCode) {
+    public void setSecurityCode(char[] securityCode) {
         this.securityCode = securityCode;
     }
 }

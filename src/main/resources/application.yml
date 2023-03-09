@@ -1,16 +1,48 @@
 spring:
-  datasource:
-    url: jdbc:mysql://esg-goals.c5laoqw4cyin.us-east-1.rds.amazonaws.com:3306/card_management_db
-    username: admin
-    password: sB6mbtzNHmCQI4eN4yLo
-    driverClassName: com.mysql.cj.jdbc.Driver
+#  datasource:
+##    url: jdbc:mysql://esg-goals.c5laoqw4cyin.us-east-1.rds.amazonaws.com:3306/card_management_db
+#    url: jdbc:mysql://localhost:3206/card_management_db
+#    username: admin
+#    password: sB6mbtzNHmCQI4eN4yLo
+#    driverClassName: com.mysql.cj.jdbc.Driver
+  default:
+    url: jdbc:h2:mem:cards;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ''
+    driver-class-name: org.h2.Driver
+    dialect: H2
+    path: /h2
 
   jpa:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
 
+  jackson:
+    mapper:
+      accept-case-insensitive-enums: true
+
   level:
     root: info
     sql: info
     web: info
+
+javers:
+  mappingStyle: FIELD
+  algorithm: SIMPLE
+  commitIdGenerator: synchronized_sequence
+  prettyPrint: true
+  typeSafeValues: false
+  initialChanges: true
+  terminalChanges: true
+  packagesToScan:
+  auditableAspectEnabled: true
+  springDataAuditableRepositoryAspectEnabled: true
+  objectAccessHook:
+  usePrimitiveDefaults: true
+  prettyPrintDateFormats:
+    localDateTime: 'dd MMM yyyy, HH:mm:ss'
+    zonedDateTime: 'dd MMM yyyy, HH:mm:ssZ'
+    localDate: 'dd MMM yyyy'
+    localTime: 'HH:mm:ss'
+

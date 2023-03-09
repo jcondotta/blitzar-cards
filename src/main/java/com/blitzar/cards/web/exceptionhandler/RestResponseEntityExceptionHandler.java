@@ -33,7 +33,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         StringBuilder sb = new StringBuilder("Violations: ");
 
         for (ConstraintViolation violation : e.violations()) {
-            String exceptionMessage = messageSource.getMessage(violation.defaultMessageFormat(), new Object[]{}, Locale.getDefault());
+            String exceptionMessage = messageSource.getMessage(violation.message(), new Object[]{}, Locale.getDefault());
             sb.append(violation.name()).append(": ").append(exceptionMessage);
         }
 
