@@ -23,22 +23,22 @@ public class AddCardService {
         this.repository = repository;
     }
 
-    public void addCard(AddCardDelegate delegate){
+    public Card addCard(AddCardDelegate delegate){
         ValidatorBuilder.<AddCardDelegate>of()
-                ._object(AddCardDelegate::getCardModel, "cardModel", c -> c.notNull().message("card.cardModel.notNull"))
                 .constraint(AddCardDelegate::getCardholderName, "cardholderName",
-                        c -> c.predicate(s -> StringUtils.isNotBlank(s), "card.cardholderName.notBlank", "card.cardholderName.notBlank"))
+                        c -> c.notNull().message("card.cardholderName.notBlank")
+                                .predicate(s -> StringUtils.isNotBlank(s), "card.cardholderName.notBlank", "card.cardholderName.notBlank"))
                 .build()
                 .applicative()
                 .validate(delegate)
                 .orElseThrow(violations -> new ConstraintViolationsException(violations));
 
-        Card card = delegate.getCardModel().getInstance();
+        var card = new Card();
         card.setCardholderName(delegate.getCardholderName());
         card.setCardNumber(UUID.randomUUID().toString());
         card.setExpirationDate(LocalDate.now().plus(4, ChronoUnit.YEARS));
         card.setSecurityCode(RandomStringUtils.randomNumeric(3).toCharArray());
 
-        repository.save(card);
+        return repository.save(card);
     }
 }
