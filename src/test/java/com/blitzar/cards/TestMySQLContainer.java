@@ -12,7 +12,8 @@ public class TestMySQLContainer {
 
     static {
         MY_SQL_CONTAINER = new MySQLContainer("mysql:8.0.32")
-                .withDatabaseName("integration-tests-db");
+                .withDatabaseName("integration-test-db");
+
         MY_SQL_CONTAINER.start();
     }
 
