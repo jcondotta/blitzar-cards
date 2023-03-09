@@ -17,6 +17,7 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+    generate-ddl: true
 
   jackson:
     mapper:
@@ -26,23 +27,4 @@ spring:
     root: info
     sql: info
     web: info
-
-javers:
-  mappingStyle: FIELD
-  algorithm: SIMPLE
-  commitIdGenerator: synchronized_sequence
-  prettyPrint: true
-  typeSafeValues: false
-  initialChanges: true
-  terminalChanges: true
-  packagesToScan:
-  auditableAspectEnabled: true
-  springDataAuditableRepositoryAspectEnabled: true
-  objectAccessHook:
-  usePrimitiveDefaults: true
-  prettyPrintDateFormats:
-    localDateTime: 'dd MMM yyyy, HH:mm:ss'
-    zonedDateTime: 'dd MMM yyyy, HH:mm:ssZ'
-    localDate: 'dd MMM yyyy'
-    localTime: 'HH:mm:ss'
 
