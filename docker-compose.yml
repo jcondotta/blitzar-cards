@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  db:
+    container_name: card_management
+    image: mysql:8.0
+
+    environment:
+      MYSQL_DATABASE: card_management_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: sB6mbtzNHmCQI4eN4yLo
+      MYSQL_ROOT_PASSWORD: sB6mbtzNHmCQI4eN4yLo
+
+    volumes:
+      - db:/Users/jeffersoncondotta/Development/StudyWorkspace/data/mysql
+    ports:
+      - 3206:3306
+    restart: unless-stopped
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:
